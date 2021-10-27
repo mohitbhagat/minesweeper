@@ -1,56 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route
+} from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
+import './styles/App.scss';
+import Game from './features/game/game';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Router>
+        <div className="header">
+          <Link to="/" className="navlink">5 x 5</Link>
+          <Link to="/7x7" className="navlink">7 x 7</Link>
+          <Link to="/10x10" className="navlink">10 x 10</Link>
+        </div>
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 1 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper" 
+        >
+          <Route path="/7x7">
+            <Game size={7} />
+          </Route>
+          <Route path="/10x10">
+            <Game size={10} />
+          </Route>
+          <Route path="/">
+            <Game size={5} />
+          </Route>
+        </AnimatedSwitch>
+      </Router>
     </div>
   );
 }

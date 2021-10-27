@@ -1,0 +1,48 @@
+@import './utils/variables.scss';
+
+.tile {
+  display: block;
+  border-radius: 0.5em;
+  box-shadow: 0 5px #666;
+  transition-duration: 0.5s;
+
+  &:hover {
+    box-shadow: 0 9px #999;
+    transform: translateY(-4px);
+  }
+}
+
+.covered {
+  background-color: $colour_tile_covered;
+  border-radius: 0.5em;
+}
+
+.centerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flagged {
+  background-image: url('../assets/icons/flag.png');
+  background-size: contain;
+  background-position: center;
+}
+
+.clear, .bomb {
+  width:inherit;
+  height:inherit;
+}
+
+.clear {
+  background-color: $colour_tile_clear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bomb {
+  background-image: url('../assets/icons/bomb.png');
+  background-size: contain;
+  background-position: center;
+}

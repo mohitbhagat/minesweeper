@@ -1,0 +1,59 @@
+@import './utils/variables.scss';
+
+.game {
+  display: block;
+}
+
+.gameOptions {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.playArea {
+  margin-top: 5vh;
+}
+
+.gameStatus {
+  margin-top: 5vh;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.gameOption {
+  display: inline-block;
+  width: 6em;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: $colour_game_option;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0 9px #999;
+
+  &:hover {
+    background-color: $colour_game_option_hover;
+  }
+
+  &:active {
+    background-color: $colour_game_option_active;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+}
+
+.disableClick {
+  pointer-events: none;
+}
